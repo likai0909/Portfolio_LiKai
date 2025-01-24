@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Li Kai'sPortfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #F0F0F0;
+    }
+ 
+    
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: transparent; 
+      padding-top: 30px;
+      box-shadow: none; 
+      z-index: 1000;
+    }
+
+
+    nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      height: 100%;
+    }
+
+
+    nav a {
+      color: black; /* Adjust to the desired color for the text */
+      text-decoration: none;
+      padding: 15px 20px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+
+
+    .container {
+      margin-left: 0; /* Remove margin to ensure it blends */
+      padding: 20px;
+    }
+
+    nav ul li {
+        position: relative; /* Positioning for dropdown */
+    }
+
+    .dropdown {
+        display: none; /* Hide dropdown by default */
+        position: absolute; /* Position dropdown */
+        top: 100%; /* Below the parent li */
+        left: 0; /* Align left */
+        background-color: white; /* Dropdown background */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Dropdown shadow */
+        z-index: 10;
+    }
+
+    nav ul li:hover .dropdown {
+        display: block; /* Show dropdown on hover */
+    }
+
+    .dropdown li {
+        list-style: none; /* Remove bullets */
+    }
+
+    .dropdown li a {
+        padding: 10px 20px; /* Padding for dropdown links */
+        color: #333; /* Text color */
+        text-decoration: none; /* Remove underline */
+    }
+
+    .dropdown li a:hover {
+        background-color: #f4f4f9; /* Background on hover */
+        color: #ff69b4; /* Text color on hover */
+    }
+
+    nav ul li a {
+      text-decoration: none; /* No underline */
+      font-weight: 500; /* Normal font weight */
+      transition: transform 0.6s ease, color 0.3s; 
+    }
+
+    nav ul li a:hover {
+      transform: scale(1.2); /* Scale up by 20% on hover */
+      /*color: #ff69b4; /* Change link color on hover */
+      display: inline-block; 
+    }
+
+    .logo {
+        margin-left: 1150px; /* Use margin-left to push the logo to the right */
+        font-size: 2.5em; /* Adjust the size as needed */
+        padding: 15px; /* Add some padding if desired */
+        font-family: 'Nunito', sans-serif;
+        margin-top: -30px; /* Adjust this value to move the logo up */
+        position: relative; /* Allows for margin adjustment */
+        display: flex;
+
+        text-shadow: 
+        2px 2px 0 #888, /* Light shadow for the 3D illusion */
+        4px 4px 0 #555, /* Darker shadow for depth */
+        6px 6px 0 #222; /* Deepest shadow */
+    }
+
+    .logo:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .letter-l {
+        color: #d1d1e0;  
+        margin-right: -10px; /* Slight overlap */
+    }
+
+    .letter-k {
+        color: #f4f4f9;  
+        margin-left: -1px; /* Slight overlap */
+    }
+
+    .hide-element {
+        display: none;
+    }
+
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    header nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+
+    header nav ul li {
+      margin: 0 15px;
+    }
+
+    header nav ul li a {
+      color: black;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    header nav ul li a:hover {
+      color: #ff69b4;
+    }
+
+    
+    .highlight {
+        display: inline-block; /* Important for overflow to work */
+        overflow: hidden;
+        white-space: nowrap; /* Prevent line breaks */
+        border-right: 3px solid; /* Simulate the cursor */
+        animation: 
+            typing 2s steps(10, end) infinite alternate,
+            cursor 0.4s step-end infinite alternate;
+        vertical-align: middle;
+        max-width: fit-content;
+        /*text-decoration: underline;*/
+    }
+
+    /* Animation for the cursor */
+    @keyframes cursor {
+        50% { border-color: transparent; }
+    }
+
+    /* Animation for typing effect */
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 22%; } /* Animate to full width */
+    }
+
+    #hero {
+      /*background: linear-gradient(45deg, #ff69b4, #8a2be2); /* Pink to Purple Gradient */
+      background: linear-gradient(45deg, #ffb6c1, #dda0dd); /* Light Pink to Light Purple Gradient */
+      color: white;
+      padding:360px 0;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    #hero h2 {
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+    }
+
+    #hero .highlight {
+      color: #C75B88;
+      /*background-color: white;*/
+      padding: 5px 5px;
+      /*border-radius: 5px;*/
+      font-size: 4rem;
+      margin-bottom: 18px;
+    }
+
+    #hero p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    #hero .btn {
+      background-color: white;
+      color: #ff69b4;
+      padding: 12px 25px;
+      text-decoration: none;
+      font-weight: 500;
+      border-radius: 30px;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    #hero .btn:hover {
+      background-color: #8a2be2;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .section {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+     /* About Section */
+     #about {
+      background-color: #FFFDD0; /* Light cream background */
+      padding: 80px 0;
+    }
+
+    #about .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    #about h2 {
+      font-size: 2.5em;
+      color: #333;
+      text-align: center;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    #about h2::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 4px;
+      background-color: #ff6f61;
+      margin: 10px auto;
+    }
+
+    #about p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      color: #555;
+      text-align: justify;
+      margin-bottom: 40px;
+    }
+
+    /* Enhanced Photo Section for About */
+#about .photo {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#about .photo img {
+  width: 200px; /* Set your image size */
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #f2f2f2; /* Add a light border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a soft shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+}
+
+#about .photo img:hover {
+  transform: scale(1.1); /* Zoom in on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+
+
+#project-section h2 {
+    font-family: 'Poppins', sans-serif; /* Font family */
+    font-size: 2.5em; /* Heading size */
+    color: #333; /* Dark text for readability */
+    text-align: center; /* Center align */
+    margin-bottom: 20px; /* Space below heading */
+    position: relative; /* Position for the decorative underline */
+}
+
+/* Decorative underline for heading */
+#project-section h2::after {
+    content: '';
+    display: block;
+    width: 50px; /* Length of the underline */
+    height: 4px; /* Thickness of the underline */
+    background-color: #ff6f61; /* Accent color */
+    margin: 10px auto; /* Center the underline */
+}
+
+
+/* Skills Container */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: transparent;
+}
+
+/* Skill Icon Styling */
+.skill-icon {
+    font-size: 2.5rem; /* Icon size */
+    margin: 1rem;
+    width: 50px; /* Consistent size for images */
+    height: 50px;
+    color: black; /* Set icon color to black */
+    position: relative; /* For positioning icons up or down */
+}
+
+/* Positioning the icons in the 1 up, 1 down sequence */
+.skills-container .skill-icon:nth-child(odd) {
+    align-self: flex-start; /* Position odd icons at the top */
+}
+
+.skills-container .skill-icon:nth-child(even) {
+    align-self: flex-end; /* Position even icons at the bottom */
+}
+
+/* Skill Icon Images */
+.skills-container img.skill-icon {
+    width: 50px; /* Consistent width for images */
+    height: 50px; /* Consistent height for images */
+}
+
+
+
+.split-container {
+    display: flex;
+    width: 300px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    border: 2px solid #333; /* Border around the container */
+    border-radius: 8px;
+    overflow: hidden;
+    font-weight: bold;
+    text-align: center;
+}
+
+.split {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    color: #fff;
+}
+
+.developer {
+    background-color: #4caf50; /* Green color for Developer */
+}
+
+.designer {
+    background-color: #ff69b4; /* Pink color for Designer */
+}
+
+.project-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    background-color: #e2d2e4;
+}
+
+.project-card {
+    display: block;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 80%;
+    max-width: 600px;
+    margin: 0 auto 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card h4 {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #333;
+    text-align: center;
+}
+
+.project-card p {
+    opacity: 0;
+    max-height: 0;
+    transition: opacity 0.3s ease, max-height 0.3s ease;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+/* Show the description on hover */
+.project-card:hover p {
+    opacity: 1;
+    max-height: 290px; /* Adjust to fit your description content */
+}
+
+.view-link {
+    display: block;
+    margin: 10px auto 0; /* Adds top margin and auto margins on both sides to center it */
+    text-align: center; /* Ensures the text inside is centered */
+}
+/* Wrapper to Center the Split Container */
+.center-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+/* Split Container Styling */
+.split-container {
+    display: flex;
+    width: 1200px; /* Adjust width as needed */
+    height: 50px; /* Adjust height as needed */
+    border: 2px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Split Section Styling */
+.split {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    color: #fff;
+}
+
+.developer {
+    background-color: #000; /* Green color for Developer */
+}
+
+.designer {
+    background-color: #fff;
+    color:#000 /* Pink color for Designer */
+}
+
+
+.categories {
+    display: flex; /* Flexbox for side-by-side categories */
+    justify-content: space-around; /* Space between categories */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.category h3 {
+    position: relative; /* Position relative for positioning the pseudo-element */
+    text-align: center; /* Center the category title */
+    margin-bottom: 1rem; /* Space below category title */
+}
+
+.category h3::after {
+    content: ''; /* Creates an empty content for the underline */
+    display: block; /* Makes it a block element */
+    width: 50px; /* Length of the underline */
+    height: 4px; /* Thickness of the underline */
+    background-color: #ff6f61; /* Accent color */
+    margin: 10px auto; /* Center the underline */
+    border-radius: 2px; /* Optional: rounded edges for a softer look */
+}
+
+.center-container {
+    display: flex;
+    justify-content: center; /* Horizontally centers the content */
+    align-items: center; /* Vertically centers the content (optional, if you need it centered vertically) */
+    height: 10vh; /* Ensures the container takes the full viewport height */
+}
+
+.view-projects-link {
+    text-decoration: none;
+    color: #1abc9c; /* Teal color for the link */
+    font-family: 'Poppins', sans-serif; /* Modern font */
+    font-weight: 600; /* Semi-bold font weight */
+    font-size: 1.2rem; /* Slightly larger text */
+    padding: 10px 15px; /* Padding around the link */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #ecf0f1; /* Light grey background */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+.view-projects-link:hover {
+    color: #ffffff; /* White text on hover */
+    background-color: #16a085; /* Darker teal background on hover */
+    transform: translateY(-3px); /* Lift effect on hover */
+}
+
+.view-projects-link:focus {
+    outline: none; /* Removes the default focus outline */
+    border: 2px solid #1abc9c; /* Teal border on focus */
+}
+
+/* Contact Section Styling */
+#contact {
+    padding: 50px;
+    background-color: #f5f5f5;
+    text-align: center;
+    border-radius: 8px;
+    margin: 40px auto;
+    max-width: 600px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-heading {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact-description {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    font-size: 1.1em;
+    color: #333;
+    margin: 5px 0;
+}
+
+.contact-info a {
+    color: #ff69b4;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.social-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-link {
+    color: #ff69b4;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #333;
+}
+
+    
+    .social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background: transparent;
+  position: relative;
+  z-index: 2;
+  margin-top: 100px;
+}
+
+.social .social-links a {
+  margin: 0 10px;
+  font-size: 30px; /* Adjust icon size */
+  color: #000; /* Icon color, adjust as needed */
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-decoration: none; /* Removes underline */
+  border: none; /* Removes any borders */
+  outline: none; /* Removes any outline */
+}
+
+.social .social-links a:hover {
+  color: #007bff; /* Change color on hover */
+  transform: scale(1.1);
+}
+
+    footer {
+      background-color: transparent;
+      color: black;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header nav ul {
+        flex-direction: column;
+      }
+
+      #hero {
+        padding: 60px 0;
+      }
+
+      #hero h2 {
+        font-size: 2.2rem;
+      }
+
+      
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li>
+                    <a href="#project-section">Projects</a>
+                    <ul class="dropdown">
+                        <li><a href="project1.html">Project One</a></li>
+                        <li><a href="project2.html">Project Two</a></li>
+                        <li><a href="project3.html">Project Three</a></li>
+                        <li><a href="project4.html">Project Four</a></li>
+                        <li><a href="project5.html">Project Five</a></li>
+                    </ul>
+                </li>
+                <li><a href="#contact">Contact</a></li>
+                <h1 class="logo">
+                  <span class="letter-l">L</span>
+                  <span class="letter-k">K</span>
+                </h1>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+  <section id="hero">
+    <div class="hero-content">
+      <h2>Hello, I'm <span class="highlight">Tan Li Kai</span></h2>
+      <p>I'm a passionate web developer. I create beautiful and functional websites.</p>
+      <a href="#about" class="btn">About me</a>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>Hi, I'm LK, a passionate web developer and designer with a love for clean, modern designs and responsive user experiences. I specialize in front-end development, creating visually stunning websites with HTML, CSS, and JavaScript.</p>
+
+      <div class="photo">
+        <img src="design/myself.png" alt="LK's Photo"> <!-- Replace with your photo -->
+      </div>
+
+      <p>I have experience working with various technologies such as React, Node.js, and CSS frameworks like Bootstrap. My goal is to continuously learn and grow in the world of web development.</p>
+    </div>
+    <div class="skills-container">
+      <i class="fab fa-js-square skill-icon"></i>
+      <i class="fab fa-react skill-icon"></i>
+      <i class="fab fa-python skill-icon"></i>
+      <i class="fab fa-html5 skill-icon"></i>
+      <i class="fas fa-code skill-icon"></i>
+      <img src="public/illustrator.png" alt="Illustrator Icon" class="skill-icon">
+      <i class="fab fa-css3-alt skill-icon"></i>
+      <img src="public/photoshop.png" alt="Photoshop Icon" class="skill-icon">
+      <i class="fab fa-php skill-icon"></i>
+  </div>
+  
+  
+    <div class="center-wrapper">
+      <div class="split-container">
+          <div class="split developer">Developer</div>
+          <div class="split designer">Designer</div>
+      </div>
+  </div>
+  
+</section>
+
+<section class="project-section" id="project-section">
+  <h2>My Projects</h2>
+  <div class="categories">
+      <div class="category development">
+          <h3>Development</h3>
+          <div class="project-card">
+            <h4>Hotel booking website</h4>
+            <p>Developed a hotel booking website using HTML, CSS, EJS, and Node.js for dynamic content, responsive design, and efficient data handling. Integrated PHPMyAdmin for database management to streamline booking processes.<br><a href="project1.html" class="view-link">Click To View</a></p>
+        </div>
+        
+        <div class="project-card">
+          <h4>Pizza App</h4>
+          <p>Developed a dynamic web app using React for an interactive, user-friendly interface, deployed on Vercel for seamless hosting and real-time updates. The project aimed to deliver a fast, responsive, and intuitive user experience.<br><a href="project4.html" class="view-link">Click To View</a></p>
+      </div>
+      <div class="project-card">
+        <h4>VR Escape room</h4>
+        <p>Developed an immersive VR escape room in Unity with interactive elements and puzzles. Used C# for scripting game mechanics, creating a dynamic and engaging user experience.<br><a href="project5.html" class="view-link">Click To View</a></p>
+    </div>
+      </div>
+      <div class="category design">
+          <h3>Design</h3>
+          <div class="project-card">
+            <h4>DSTA BrainHack</h4>
+            <p>My team and I designed a Figma DIY workshop app that promotes recycling by helping users create items from recycled materials, access tutorials, and sell creations to earn rewards, inspiring sustainability and fighting climate change.<a href="project2.html" class="view-link">Click To View</a></p>
+        </div>
+        <div class="project-card">
+          <h4>Creative Designs</h4>
+          <p>Designed custom name cards, logos, chat stickers, and website layouts using Adobe Illustrator and Photoshop, focusing on clean aesthetics. Delivered cohesive designs to enhance branding and user engagement.<br><a href="project3.html" class="view-link">Click To View</a></p>
+      </div>
+  </div>
+</section>
+
+
+  
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+  </script>
+
+<section id="contact">
+  <h2 class="contact-heading">Get in Touch</h2>
+  <p class="contact-description">I'm always grateful for new opportunities and would be glad to join forces as part of a team. Please feel free to connect with me through any of the platforms below—I’d love to hear from you!</p>
+  
+  <div class="contact-info">
+      <p>Email: <a href="mailto : likaitan0909@gmail.com">likaitan0909@gmail.com</a></p>
+      <p>Phone: <a href="tel:+65 98886138">+65 98886138</a></p>
+  </div>
+
+  <footer class="social">
+    <div class="social-links">
+      <a href="https://wa.me/98886138" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="https://instagram.com/t.l_k_._" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://linkedin.com/in/likai0909" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+  </footer>
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 Tan Li Kai. All Rights Reserved.</p>
+    </div>
+  </footer> 
+</section>
+
+
+
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="script.js"></script>
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color:  #A8D0E6;
+    }
+
+    
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: transparent; 
+      padding-top: 30px;
+      box-shadow: none; 
+      z-index: 1000;
+    }
+
+
+    nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      height: 100%;
+    }
+
+
+    nav a {
+      color: black; /* Adjust to the desired color for the text */
+      text-decoration: none;
+      padding: 15px 20px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+
+
+    .container {
+      margin-left: 0; /* Remove margin to ensure it blends */
+      padding: 20px;
+    }
+
+    nav ul li {
+        position: relative; /* Positioning for dropdown */
+    }
+
+  
+    nav ul li a {
+      text-decoration: none; /* No underline */
+      font-weight: 500; /* Normal font weight */
+      transition: transform 0.6s ease, color 0.3s; 
+    }
+
+    nav ul li a:hover {
+      transform: scale(1.2); /* Scale up by 20% on hover */
+      /*color: #ff69b4; /* Change link color on hover */
+      display: inline-block; 
+    }
+
+    .logo {
+        margin-left: 1285px; /* Use margin-left to push the logo to the right */
+        font-size: 2.5em; /* Adjust the size as needed */
+        padding: 15px; /* Add some padding if desired */
+        font-family: 'Nunito', sans-serif;
+        margin-top: -30px; /* Adjust this value to move the logo up */
+        position: relative; /* Allows for margin adjustment */
+        display: flex;
+
+        text-shadow: 
+        2px 2px 0 #888, /* Light shadow for the 3D illusion */
+        4px 4px 0 #555, /* Darker shadow for depth */
+        6px 6px 0 #222; /* Deepest shadow */
+    }
+
+    .logo:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .letter-l {
+        color: #d1d1e0;  
+        margin-right: -10px; /* Slight overlap */
+    }
+
+    .letter-k {
+        color: #f4f4f9;  
+        margin-left: -1px; /* Slight overlap */
+    }
+    
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    header nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+
+    header nav ul li {
+      margin: 0 15px;
+    }
+
+    header nav ul li a {
+      color: black;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    header nav ul li a:hover {
+      color: #ff69b4;
+    }
+
+
+    .section h2 {
+      font-size: 2.2rem;
+      position: relative;
+      text-align: center; /* Center the text */
+      padding-top: 100px; 
+    }
+
+    .section h2::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 4px;
+      background-color: #ff69b4;
+      bottom: -10px; /* Position the line below the text */
+      left: 50%;
+      transform: translateX(-50%); /* Center the line under the text */
+    }
+
+    .scrollable-section {
+  width: 100%; /* Full width */
+  overflow: hidden; /* Hides the overflow so only visible part shows */
+  position: relative;
+  background-color:transparent;
+  padding: 20px;
+  margin-top: 70px;
+}
+
+.scrollable-container {
+  display: flex;
+  gap: 20px; /* Space between project cards */
+  animation: scroll 20s linear infinite; /* Animation for infinite scrolling */
+}
+
+
+/* Animation keyframes */
+@keyframes scroll {
+  0% {
+    transform: translateX(50%); /* Start fully outside on the right */
+  }
+  50% {
+    transform: translateX(-50%); /* Scrolls all the way to the left */
+  }
+  100% {
+    transform: translateX(50%); /* Ends back on the right for a loop */
+  }
+}
+
+.item {
+    width: 100%;
+    height: 400px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 1.2em;
+    color: #fff; /* Set font color to contrast with background image */
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    background-size: cover; /* Ensures the image covers the full area */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents image tiling */
+    text-decoration: none;
+    padding: 10px 15px;
+}
+
+/* Hover effect for scaling and shadow */
+.item:hover {
+  transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4),   /* Deep shadow for depth */
+            0 0 20px rgba(0, 0, 0, 0.8),    /* Strong black glow */
+            0 0 30px rgba(128, 128, 128, 0.6); /* Softer gray glow */
+}
+
+
+/* Background images for each project item */
+.item:nth-child(1) {
+    background-image: url('public/website.png');
+}
+.item:nth-child(2) {
+    background-image: url('public/escapeRoom.png');
+}
+.item:nth-child(3) {
+    background-image: url('path/to/image3.jpg');
+}
+.item:nth-child(4) {
+    background-image: url('path/to/image4.jpg');
+}
+.item:nth-child(5) {
+    background-image: url('path/to/image5.jpg');
+}
+/* Footer styling for visibility */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+    #download-cv {
+      text-align: center;
+      margin: 50px 0;
+      margin-top: 150px;
+      /*z-index: 1;*/
+    }
+
+    #download-cv h2 {
+      font-size: 24px;
+      color: #333;
+    }
+
+    #download-cv button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    #download-cv button:hover {
+      background-color: #45a049;
+    }
+
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color:  #A8D0E6;
+      z-index: -1;
+      margin-top: 10px;
+    }
+
+    footer {
+      background-color: transparent;
+      color: black;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 70px;
+    }
+
+    footer p {
+      margin: 0;
+    }
+    
+    .social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+.social .social-links a {
+  margin: 0 10px;
+  font-size: 30px; /* Adjust icon size */
+  color: #000; /* Icon color, adjust as needed */
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-decoration: none; /* Removes underline */
+  border: none; /* Removes any borders */
+  outline: none; /* Removes any outline */
+}
+
+.social .social-links a:hover {
+  color: #007bff; /* Change color on hover */
+  transform: scale(1.1);
+}
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header nav ul {
+        flex-direction: column;
+      }
+
+      #projects .project-grid {
+        flex-direction: column;
+      }
+
+      #hero {
+        padding: 60px 0;
+      }
+
+      #hero h2 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="index.html">About</a></li>
+                </li>
+                <li><a href="index.html">Contact</a></li>
+                <h1 class="logo">
+                  <span class="letter-l">L</span>
+                  <span class="letter-k">K</span>
+                </h1>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div id="particles-js"></div>
+<section id="allprojects" class="section"> 
+  <div class="container">
+      <h2> All Projects</h2>
+  </div>
+</section>
+
+<section class="scrollable-section">
+  <div class="scrollable-container">
+      <a href="project1.html" class="item">
+          <div class="parallax" style="background-image: url('public/website.png');"></div>
+          Project 1
+      </a>
+      <a href="project2.html" class="item">
+          <div class="parallax" style="background-image: url('public/to/escapeRoom.png');"></div>
+          Project 2
+      </a>
+      <a href="project3.html" class="item">
+          <div class="parallax" style="background-image: url('path/to/image3.jpg');"></div>
+          Project 3
+      </a>
+      <a href="project4.html" class="item">
+          <div class="parallax" style="background-image: url('path/to/image4.jpg');"></div>
+          Project 4
+      </a>
+      <a href="project5.html" class="item">
+          <div class="parallax" style="background-image: url('path/to/image5.jpg');"></div>
+          Project 5
+      </a>
+  </div>
+</section>
+
+
+  <section id="download-cv">
+    <h2>Download My CV</h2>
+    <div class="download-options">
+      <a href="public/Create%20New%20React%20Native%20Mobile%20App.pdf" download>
+        <button aria-label="Download CV as PDF">Download PDF</button>
+      </a>
+      <a href="public/Create_New_React_Native_Mobile_App.docx" download>
+        <button aria-label="Download CV as Word document">Download Word</button>
+      </a>
+    </div>
+  </section>
+
+  <footer class="social">
+    <div class="social-links">
+      <a href="https://wa.me/98886138" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="https://instagram.com/t.l_k_._" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://linkedin.com/in/likai0909" target="_blank" aria-label="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+  </footer>
+
+<script>
+    particlesJS("particles-js", {
+  particles: {
+    number: {
+      value: 150, // Decrease the number of particles
+      density: {
+        enable: true,
+        value_area: 800 // Adjust the area for density
+      }
+    },
+    color: {
+      value: "#FF6F61" // Change to desired particle color
+    },
+    shape: {
+      type: "circle", // Particle shape
+      stroke: {
+        width: 0,
+        color: "#FF6F61" // Change to desired stroke color
+      },
+      polygon: {
+        nb_sides: 8 // Number of sides for polygon shape
+      },
+    },
+    opacity: {
+      value: 0.3, // Particle opacity
+      random: false
+    },
+    size: {
+      value: 2, // Adjust particle size
+      random: true
+    },
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: "#FF6F61", // Change to desired line color
+      opacity: 0.4,
+      width: 1
+    },
+    move: {
+      enable: true,
+      speed: 0.5, // Decrease this value to slow down the particles
+      direction: "none",
+      random: false,
+      straight: false,
+      out_mode: "out",
+      bounce: false
+    }
+  },
+  retina_detect: true
+});
+</script>
+
+<script>
+  // script.js
+const items = document.querySelectorAll('.item');
+
+// Function to animate items on page load
+function animateItems() {
+    items.forEach((item, index) => {
+        setTimeout(() => {
+            item.style.opacity = '1'; // Fade in
+            item.style.transform = 'translateX(0)'; // Slide in from the right
+        }, index * 300); // Stagger the animation
+    });
+}
+
+// Run the animation when the page loads
+window.onload = animateItems;
+</script>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2024 Tan Li Kai. All Rights Reserved.</p>
+  </div>
+</footer>  
+</body>
+</html>
