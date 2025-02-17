@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #F0F0F0;
+    }
+
+    
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: transparent; 
+      padding-top: 30px;
+      box-shadow: none; 
+      z-index: 1000;
+    }
+
+
+    nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      height: 100%;
+    }
+
+
+    nav a {
+      color: black; /* Adjust to the desired color for the text */
+      text-decoration: none;
+      padding: 15px 20px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+
+
+    .container {
+      margin-left: 0; /* Remove margin to ensure it blends */
+      padding: 20px;
+    }
+
+    nav ul li {
+        position: relative; /* Positioning for dropdown */
+    }
+
+    .dropdown {
+        display: none; /* Hide dropdown by default */
+        position: absolute; /* Position dropdown */
+        top: 100%; /* Below the parent li */
+        left: 0; /* Align left */
+        background-color: white; /* Dropdown background */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Dropdown shadow */
+        z-index: 10;
+    }
+
+    nav ul li:hover .dropdown {
+        display: block; /* Show dropdown on hover */
+    }
+
+    .dropdown li {
+        list-style: none; /* Remove bullets */
+    }
+
+    .dropdown li a {
+        padding: 10px 20px; /* Padding for dropdown links */
+        color: #333; /* Text color */
+        text-decoration: none; /* Remove underline */
+    }
+
+    .dropdown li a:hover {
+        background-color: #f4f4f9; /* Background on hover */
+        color: #ff69b4; /* Text color on hover */
+    }
+
+    nav ul li a {
+      text-decoration: none; /* No underline */
+      font-weight: 500; /* Normal font weight */
+      transition: transform 0.6s ease, color 0.3s; 
+    }
+
+    nav ul li a:hover {
+      transform: scale(1.2); /* Scale up by 20% on hover */
+      /*color: #ff69b4; /* Change link color on hover */
+      display: inline-block; 
+    }
+
+    .logo {
+        margin-left: 1150px; /* Use margin-left to push the logo to the right */
+        font-size: 2.5em; /* Adjust the size as needed */
+        padding: 15px; /* Add some padding if desired */
+        font-family: 'Nunito', sans-serif;
+        margin-top: -30px; /* Adjust this value to move the logo up */
+        position: relative; /* Allows for margin adjustment */
+        display: flex;
+
+        text-shadow: 
+        2px 2px 0 #888, /* Light shadow for the 3D illusion */
+        4px 4px 0 #555, /* Darker shadow for depth */
+        6px 6px 0 #222; /* Deepest shadow */
+    }
+
+    .logo:hover {
+        transform: scale(1.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .letter-l {
+        color: #d1d1e0;  
+        margin-right: -10px; /* Slight overlap */
+    }
+
+    .letter-k {
+        color: #f4f4f9;  
+        margin-left: -1px; /* Slight overlap */
+    }
+
+    .hide-element {
+        display: none;
+    }
+
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    header nav ul {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+    }
+
+    header nav ul li {
+      margin: 0 15px;
+    }
+
+    header nav ul li a {
+      color: black;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    header nav ul li a:hover {
+      color: #ff69b4;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+        <nav>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li>
+                    <a href="#projects">Projects</a>
+                    <ul class="dropdown">
+                        <li><a href="project1.html">Project One</a></li>
+                        <li><a href="#project2">Project Two</a></li>
+                        <li><a href="#project3">Project Three</a></li>
+                        <li><a href="#project3">Project Three</a></li>
+                        <li><a href="#project3">Project Three</a></li>
+                    </ul>
+                </li>
+                <li><a href="#contact">Contact</a></li>
+                <h1 class="logo">
+                  <span class="letter-l">L</span>
+                  <span class="letter-k">K</span>
+                </h1>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+  <section id="hero">
+    <div class="hero-content">
+      <h2>Hello, I'm <span class="highlight">Tan Li Kai</span></h2>
+      <p>I'm a passionate web developer. I create beautiful and functional websites.</p>
+      <a href="allprojects.html" class="btn">See My Work</a>
+    </div>
+    <footer class="social">
+      <div class="social-links">
+        <a href="https://wa.me/98886138" target="_blank" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://instagram.com/t.l_k_._" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://linkedin.com/in/likai0909" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </footer>
+    <footer>
+      <div class="container">
+        <p>&copy; 2024 Tan Li Kai. All Rights Reserved.</p>
+      </div>
+    </footer> 
+  </section>
+
+  
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+  </script>
+
+</body>
+</html>

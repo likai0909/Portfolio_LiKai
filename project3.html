@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="public/alien.png">
+    <title>Website Design Screenshots</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+            color: #333;
+            padding: 40px 20px;
+            line-height: 1.6;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: transparent;
+            padding-top: 30px;
+            box-shadow: none;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+        }
+
+        nav a {
+            color: black;
+            text-decoration: none;
+            padding: 15px 20px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            transform: scale(1.2); /* Scale up by 20% on hover */
+            display: inline-block; 
+        }
+
+        .container {
+            margin-left: 0; 
+            padding: 20px;
+        }
+
+        .logo {
+            margin-left: 1275px;
+            font-size: 2.5em;
+            padding: 15px;
+            font-family: 'Nunito', sans-serif;
+            margin-top: -30px;
+            position: relative;
+            display: flex;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 0 #888, 4px 4px 0 #555, 6px 6px 0 #222;
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .letter-l {
+            color: #d1d1e0;
+            margin-right: -10px;
+        }
+
+        .letter-k {
+            color: #f4f4f9;
+            margin-left: -1px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+        }
+
+        header nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        header nav ul li {
+            margin: 0 15px;
+        }
+
+        header nav ul li a {
+            color: black;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        header nav ul li a:hover {
+            color: #ff69b4;
+        }
+
+/* Media Gallery Container */
+.media-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 20px; /* Space between items */
+  justify-items: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  margin-top: 20px;
+}
+
+/* Media Items */
+.media-item {
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.media-item img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.media-item img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.media-item p {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Modal */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1000; /* Above everything */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /* Dark overlay */
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 80%;
+  max-height: 80%;
+  margin-bottom: 10px; /* Space for caption below */
+  border-radius: 10px;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-caption {
+  color: #fff;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* Close Button */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #f00;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .media-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+    gap: 15px;
+  }
+
+  .media-item img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .modal-content {
+    max-width: 90%;
+    max-height: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .media-container {
+    grid-template-columns: 1fr; /* Single column on very small screens */
+  }
+
+  .media-item img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .modal-caption {
+    font-size: 16px;
+  }
+}
+
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.8);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .media-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .media-item img {
+    width: 120px;
+  }
+}
+
+
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 
+                1;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <a href="index.html">
+                        <h1 class="logo">
+                            <span class="letter-l">L</span>
+                            <span class="letter-k">K</span>
+                        </h1>
+                    </a>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<div class="media-container">
+  <div class="media-item">
+    <img src="design/logo.png" alt="Logo" onclick="openModal('logoModal')" />
+    <p>Logo</p>
+  </div>
+  <div class="media-item">
+    <img src="design/stickers.png" alt="Stickers" onclick="openModal('stickersModal')" />
+    <p>Stickers</p>
+  </div>
+  <div class="media-item">
+    <img src="design/namecard.png" alt="Namecard" onclick="openModal('namecardModal')" />
+    <p>Namecard</p>
+  </div>
+  <div class="media-item">
+    <img src="design/moodboard1.png" alt="Moodboard 1" onclick="openModal('moodboard1Modal')" />
+    <p>Moodboard 1</p>
+  </div>
+  <div class="media-item">
+    <img src="design/moodboard2.png" alt="Moodboard 2" onclick="openModal('moodboard2Modal')" />
+    <p>Moodboard 2</p>
+  </div>
+  <div class="media-item">
+    <img src="design/website1.png" alt="Website Design 1" onclick="openModal('website1Modal')" />
+    <p>Website Design 1</p>
+  </div>
+  <div class="media-item">
+    <img src="design/website2.png" alt="Website Design 2" onclick="openModal('website2Modal')" />
+    <p>Website Design 2</p>
+  </div>
+  <div class="media-item">
+    <img src="design/website3.png" alt="Website Design 3" onclick="openModal('website3Modal')" />
+    <p>Website Design 3</p>
+  </div>
+  <div class="media-item">
+    <img src="design/website4.png" alt="Website Design 4" onclick="openModal('website4Modal')" />
+    <p>Website Design 4</p>
+  </div>
+  
+</div>
+
+<section style="font-family: 'Poppins', sans-serif; margin-top: 30px; padding: 15px; text-align: center;">
+  <h2 style="font-weight: 600; font-size: 1.7rem; margin-bottom: 20px;">Creative Design Projects</h2>
+  <p style="font-weight: 300; font-size: 1rem; line-height: 1.8; margin-bottom: 20px;">
+    Designed a range of creative design assets, including custom name cards, logos, chat stickers, and website layouts, to enhance branding and visual appeal. These designs were created using Adobe Illustrator and Photoshop, focusing on clean aesthetics and user engagement. The project aimed to deliver visually appealing and cohesive designs.
+  </p>
+  <h3 style="font-weight: 600; font-size: 1.2rem; margin-top: 25px; margin-bottom: 15px;">Skills Used</h3>
+  <ul style="font-weight: 300; font-size: 1rem; margin: 10px 0; padding-left: 0; list-style-position: inside; display: inline-block; text-align: left; line-height: 1.8;">
+    <li>Adobe Illustrator</li>
+    <li>Adobe Photoshop</li>
+    <li>Graphic Design</li>
+  </ul>
+</section>
+
+<!-- Modals -->
+<div id="logoModal" class="modal">
+  <span class="close" onclick="closeModal('logoModal')">&times;</span>
+  <img class="modal-content" id="logoImg" />
+  <div class="modal-caption"></div>
+</div>
+
+<div id="stickersModal" class="modal">
+  <span class="close" onclick="closeModal('stickersModal')">&times;</span>
+  <img class="modal-content" id="stickersImg" />
+  <div class="modal-caption"></div>
+</div>
+
+<div id="namecardModal" class="modal">
+  <span class="close" onclick="closeModal('namecardModal')">&times;</span>
+  <img class="modal-content" id="namecardImg" />
+  <div class="modal-caption"></div>
+</div>
+
+<div id="moodboard1Modal" class="modal">
+  <span class="close" onclick="closeModal('moodboard1Modal')">&times;</span>
+  <img class="modal-content" id="moodboard1Img" />
+  <div class="modal-caption"> </div>
+</div>
+
+<div id="moodboard2Modal" class="modal">
+  <span class="close" onclick="closeModal('moodboard2Modal')">&times;</span>
+  <img class="modal-content" id="moodboard2Img" />
+  <div class="modal-caption"></div>
+</div>
+
+<div id="website1Modal" class="modal">
+  <span class="close" onclick="closeModal('website1Modal')">&times;</span>
+  <img class="modal-content" id="website1Img" />
+  <div class="modal-caption"></div>
+</div>
+
+<div id="website2Modal" class="modal">
+  <span class="close" onclick="closeModal('website2Modal')">&times;</span>
+  <img class="modal-content" id="website2Img" />
+  <div class="modal-caption">Website Design 2
+
+<div id="website3Modal" class="modal">
+  <span class="close" onclick="closeModal('website3Modal')">&times;</span>
+  <img class="modal-content" id="website3Img" />
+  <div class="modal-caption">Website Design 3</div>
+</div>
+
+<div id="website4Modal" class="modal">
+  <span class="close" onclick="closeModal('website4Modal')">&times;</span>
+  <img class="modal-content" id="website4Img" />
+  <div class="modal-caption">Website Design 4</div>
+</div>
+
+
+
+
+
+      <script>
+        function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  const modalImg = modal.querySelector('.modal-content');
+
+  // Map modalId to image sources
+  const imageMap = {
+    logoModal: 'design/logo.png',
+    stickersModal: 'design/stickers.png',
+    namecardModal: 'design/namecard.png',
+    moodboard1Modal: 'design/moodboard1.png',
+    moodboard2Modal: 'design/moodboard2.png',
+    website1Modal: 'design/website1.png',
+    website2Modal: 'design/website2.png',
+    website3Modal: 'design/website3.png',
+    website4Modal: 'design/website4.png',
+  };
+
+  // Set the image source dynamically
+  modalImg.src = imageMap[modalId];
+  modal.style.display = 'flex';
+}
+
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  modal.style.display = 'none';
+}
+
+// Close modal when clicking outside the modal content
+window.onclick = function (event) {
+  const modals = document.querySelectorAll('.modal');
+  modals.forEach((modal) => {
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+};
+
+
+      </script>
+</body>
+</html>
